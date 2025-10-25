@@ -1,0 +1,24 @@
+.wrapper {
+  margin: 0;
+  padding: 5rem 10rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.prompt {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.word-cloud-container {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}

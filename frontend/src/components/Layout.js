@@ -1,13 +1,15 @@
 import { Helmet } from "react-helmet";
 
-export default function Layout({ children }) {
-  if (typeof document !== "undefined") document.title = "QuickPulse";
+export default function Layout({ title = "QuickPulse", children }) {
+  if (typeof document !== "undefined") {
+    document.title = title;
+  }
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>QuickPulse</title>
+        <title>{title}</title>
       </Helmet>
       {children}
     </>
