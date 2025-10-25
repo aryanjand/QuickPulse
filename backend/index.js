@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connectToDatabase } from "./src/db/connection.js";
 import roomsRouter from "./src/routes/rooms.js";
+import fetch from "node-fetch";
 
 const app = express();
 const PORT = 8000 || process.env.PORT;
@@ -30,7 +31,7 @@ async function testCreateRoom() {
       createdAt: new Date().toISOString()
     };
 
-    console.log("\n🧪 Testing room creation endpoint...");
+    console.log("\nTesting room creation endpoint...");
     console.log("Test data:", JSON.stringify(testRoomData, null, 2));
 
     const response = await fetch(`http://localhost:${PORT}/api/rooms`, {
@@ -44,14 +45,14 @@ async function testCreateRoom() {
     const result = await response.json();
 
     if (response.ok) {
-      console.log("✅ Room created successfully!");
+      console.log("Room created successfully!");
       console.log("Response:", JSON.stringify(result, null, 2));
     } else {
-      console.log("❌ Failed to create room");
+      console.log("Failed to create room");
       console.log("Error:", JSON.stringify(result, null, 2));
     }
   } catch (error) {
-    console.error("❌ Error testing room creation:", error.message);
+    console.error("Error testing room creation:", error.message);
   }
 }
 
@@ -66,9 +67,9 @@ async function startServer() {
       console.log(`Backend server running at http://localhost:${PORT}`);
 
       // Test the room creation endpoint after server starts
-      // setTimeout(() => {
-      //   testCreateRoom();
-      // }, 1000); // Wait 1 second for server to be fully ready
+      setTimeout(() => {
+        testCreateRoom();
+      }, 1000); // Wait 1 second for server to be fully ready
     });
   } catch (error) {
     console.error("Failed to connect to database:", error);
