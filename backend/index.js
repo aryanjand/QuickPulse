@@ -67,9 +67,9 @@ async function startServer() {
       console.log(`Backend server running at http://localhost:${PORT}`);
 
       // Test the room creation endpoint after server starts
-      setTimeout(() => {
-        testCreateRoom();
-      }, 1000); // Wait 1 second for server to be fully ready
+      // setTimeout(() => {
+      //   testCreateRoom();
+      // }, 1000); // Wait 1 second for server to be fully ready
     });
   } catch (error) {
     console.error("Failed to connect to database:", error);
