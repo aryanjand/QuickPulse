@@ -1,11 +1,13 @@
 import { WordCloud } from "@isoterik/react-word-cloud";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import "../css/room.css";
 
 export default function Room() {
   const { id } = useParams();
-  const prompt = "What is your favourite part of the event today?";
+  const location = useLocation();
+
+  const prompt = location.state?.prompt || "No prompt provided.";
   const words = [
     { text: "React", value: 500 },
     { text: "WordCloud", value: 300 },
