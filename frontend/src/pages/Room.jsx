@@ -1,8 +1,10 @@
 import { WordCloud } from "@isoterik/react-word-cloud";
+import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import "../css/room.css";
 
 export default function Room() {
+  const { id } = useParams();
   const prompt = "What is your favourite part of the event today?";
   const words = [
     { text: "React", value: 500 },
@@ -18,6 +20,7 @@ export default function Room() {
     <Layout title="QuickPulse | Room">
       <div className="wrapper">
         <div className="container">
+          <p className="room-id">Room ID: {id}</p>
           <h1 className="prompt">{prompt}</h1>
           <div className="word-cloud-container">
             <WordCloud words={words} width={300} height={200} />
