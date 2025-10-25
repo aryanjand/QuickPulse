@@ -1,0 +1,29 @@
+import { WordCloud } from "@isoterik/react-word-cloud";
+import Layout from "../components/Layout";
+import "../css/room.css";
+
+export default function Room() {
+  const prompt = "What is your favourite part of the event today?";
+  const words = [
+    { text: "React", value: 500 },
+    { text: "WordCloud", value: 300 },
+    { text: "D3", value: 1000 },
+    { text: "JavaScript", value: 400 },
+    { text: "TypeScript", value: 600 },
+    { text: "Word", value: 800 },
+    { text: "Cloud", value: 200 },
+  ];
+
+  return (
+    <Layout title="QuickPulse | Room">
+      <div className="wrapper">
+        <div className="container">
+          <h1 className="prompt">{prompt}</h1>
+          <div className="word-cloud-container">
+            <WordCloud words={words} width={300} height={200} />
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
