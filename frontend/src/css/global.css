@@ -24,3 +24,8 @@ body {
   padding: 0;
   background: #15122c;
 }
+
+input,
+button {
+  font-family: "Press Start 2P", system-ui;
+}
